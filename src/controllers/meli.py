@@ -1,12 +1,19 @@
-from fastapi import APIRouter
+import json
+from fastapi import APIRouter, Request
 
 
 router = APIRouter()
 
 
 @router.get("/meli/notification")
-def read_root(response):
-    return response
+async def read_root(request: Request):
+    body = await request.body()
+    json_body = json.loads(body.decode())
+
+    with open("meli.json", "w") as f:
+        json.dump(json_body, f)
+
+    return json_body
 
 
 __all__ = ["router"]

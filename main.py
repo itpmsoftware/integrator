@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from src.controllers import router_test, router_meli
+from src.views import router_test, router_meli
 
 app = FastAPI()
 

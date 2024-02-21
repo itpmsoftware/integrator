@@ -39,7 +39,7 @@ async def read_root(request: Request):
     parametros = request.query_params
     
     # Guardar json_body en un archivo .json
-    with open("datos.json", "w") as f:
+    with open("datos.json", "a") as f:
         json.dump(json_body, f)
     
     return {"body": json_body, "params": dict(parametros)}

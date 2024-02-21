@@ -19,7 +19,7 @@ async def get_token_meli(code: str):
         "content-type": "application/x-www-form-urlencoded"
     }
 
-    response = await post(url, data=data, headers=headers)
+    response = post(url, data=data, headers=headers)
     if response.status_code == 200:
         return response.json()
     else:

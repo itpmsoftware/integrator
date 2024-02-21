@@ -25,9 +25,9 @@ async def read_root(request: Request):
     return {"body": json_body, "params": dict(parametros)}
 
 @router.get("/meli/credentials")
-async def read_root(url_redirect: str):
+async def read_root():
 
-    url_redirect = "{}?redirect={}".format(os.getenv("APP_URL"), url_redirect)
+    url_redirect = "{}api/v1/meli/notification".format(os.getenv("APP_URL"))
 
     link_access = """https://auth.mercadolibre.com.co/authorization?response_type=code&client_id={}&redirect_uri={}""".format(os.getenv("APP_MELI_ID"), url_redirect)
 
